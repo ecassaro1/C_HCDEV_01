@@ -1,4 +1,4 @@
-# CAP cap1
+# CAP hello
 _out
 *.db
 connection.properties
@@ -28,8 +28,3 @@ mta_archives/
 # IDEs
 # .vscode
 # .idea
-
-# auto generated wildcard
-cap1/.env
-# auto generated wildcard
-cap1/.env1

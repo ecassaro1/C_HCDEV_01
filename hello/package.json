@@ -1,5 +1,5 @@
 {
-  "name": "cap1",
+  "name": "hello",
   "version": "1.0.0",
   "description": "A simple CAP project.",
   "repository": "<Add your repository here>",
@@ -7,14 +7,9 @@
   "private": true,
   "dependencies": {
     "@sap/cds": "^5",
-    "@sap/hana-client": "^2.13.22",
-    "@sap/hdbext": "^7.6.4",
-    "express": "^4",
-    "hdb": "^0.18.3",
-    "sap-hdbext-promisfied": "^2.202206.1"
+    "express": "^4"
   },
   "devDependencies": {
-    "@sap/hdi-deploy": "4.4.1",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
@@ -43,16 +38,6 @@
     "rules": {
       "no-console": "off",
       "require-atomic-updates": "off"
-    }
-  },
-  "cds": {
-    "requires": {
-      "db": {
-        "kind": "hana"
-      }
-    },
-    "hana": {
-      "deploy-format": "hdbtable"
     }
   }
 }
