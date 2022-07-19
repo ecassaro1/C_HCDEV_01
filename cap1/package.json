@@ -15,10 +15,12 @@
   },
   "devDependencies": {
     "@sap/hdi-deploy": "4.4.1",
+    "@sap/ux-specification": "^1.102.1",
     "sqlite3": "^5.0.2"
   },
   "scripts": {
-    "start": "cds run"
+    "start": "cds run",
+    "watch-cap1_ent1_fiori": "cds watch --open cap1_ent1_fiori/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "eslintConfig": {
     "extends": "eslint:recommended",
@@ -54,5 +56,8 @@
     "hana": {
       "deploy-format": "hdbtable"
     }
-  }
+  },
+  "sapux": [
+    "app/cap1_ent1_fiori"
+  ]
 }

@@ -3,7 +3,7 @@ var hdbext = require('@sap/hdbext');
 const dbClass = require('sap-hdbext-promisfied');
 
 module.exports = function (){
-  this.on ('getAllEnt1', async (req)=>{
+  this.on('getAllEnt1', async (req)=>{
     try{
         const db = await cds.connect.to('db');
         let dbCon = new dbClass(
@@ -26,4 +26,9 @@ module.exports = function (){
         return;
     }
   })
+/*
+  this.after('READ','Ent1',(each)=>{
+    each.name = each.name + " and something more";
+  })
+*/
 }

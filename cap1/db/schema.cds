@@ -1,6 +1,6 @@
 namespace cap1;
 
 entity Ent1 {
-    ID: Integer;
+    key ID: Integer;
     name: String(50);
 }
