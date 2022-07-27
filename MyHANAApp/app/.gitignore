@@ -4,3 +4,12 @@ package-lock.json
 
 
 
+
+# auto generated wildcard
+MyAppHANA2/.env
+# auto generated wildcard
+MyAppHANA2/db/.env
+# auto generated wildcard
+cap2/.env
+# auto generated wildcard
+cap3/.env

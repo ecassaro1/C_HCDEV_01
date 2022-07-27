@@ -1,0 +1,11 @@
+/node_modules/
+package-lock.json
+
+
+
+
+
+# auto generated wildcard
+cap2/.env
+# auto generated wildcard
+cap3/.env

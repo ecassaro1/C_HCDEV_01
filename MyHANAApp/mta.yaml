@@ -8,6 +8,7 @@ modules:
     path: srv
     requires:
       - name: MyHANAApp-db
+      - name: uaa_MyHANAApp
     provides:
       - name: srv-api
         properties:

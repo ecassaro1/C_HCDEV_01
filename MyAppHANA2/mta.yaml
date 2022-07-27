@@ -1,0 +1,77 @@
+_schema-version: "3.1"
+ID: MyAppHANA2
+description: A simple CAP project.
+version: 1.0.0
+modules:
+- name: MyAppHANA2-srv
+  type: nodejs
+  path: srv
+  requires:
+  - name: MyAppHANA2-db
+  provides:
+  - name: srv-api
+    properties:
+      srv-url: ${default-url}
+  parameters:
+    buildpack: nodejs_buildpack
+  build-parameters:
+    builder: npm-ci
+- name: MyAppHANA2-db-deployer
+  type: hdb
+  path: db
+  requires:
+  - name: MyAppHANA2-db
+  parameters:
+    buildpack: nodejs_buildpack
+- name: app
+  type: approuter.nodejs
+  path: app
+  requires:
+  - name: MyAppHANA2_html_repo_runtime
+  - name: uaa_MyAppHANA2
+  - name: srv-api
+    group: destinations
+    properties: 
+      name: srv-api
+      url: '~{srv-url}'
+      forwardAuthToken: true
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+- name: MyAppHANA2_ui_deployer
+  type: com.sap.application.content
+  path: .
+  requires:
+  - name: MyAppHANA2_html_repo_host
+    parameters:
+      content-target: true
+resources:
+- name: MyAppHANA2-db
+  type: com.sap.xs.hdi-container
+  parameters:
+    service: hana
+    service-plan: hdi-shared
+- name: MyAppHANA2_html_repo_runtime
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-runtime
+- name: uaa_MyAppHANA2
+  type: org.cloudfoundry.managed-service
+  parameters:
+    path: ./xs-security.json
+    service: xsuaa
+    service-name: MyAppHANA2-xsuaa-service
+    service-plan: application
+- name: MyAppHANA2_html_repo_host
+  type: org.cloudfoundry.managed-service
+  parameters:
+    service: html5-apps-repo
+    service-plan: app-host
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+  - builder: custom
+    commands:
+    - npx -p @sap/cds-dk cds build --production
