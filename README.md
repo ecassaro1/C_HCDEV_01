@@ -3,3 +3,5 @@
 práticas para domínio do desenvolvimento BTP
 
 o CAP3 é o case de sucesso até agora (28/07). É um serviço CAP com um app Fiori Elements, tudo num MTA só, com approuter/destination.
+
+o CAP3_FE2 é só o front end separado, funcionando tbm
