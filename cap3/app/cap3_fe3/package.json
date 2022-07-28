@@ -9,20 +9,22 @@
         "sapui5"
     ],
     "main": "webapp/index.html",
-    "dependencies": {},
     "devDependencies": {
-        "@ui5/cli": "^2.14.1",
-        "@sap/ux-ui5-tooling": "1",
+        "@sap/ui5-builder-webide-extension": "^1.1.8",
         "@sap/ux-specification": "UI5-1.102",
         "@sap/ux-ui5-fe-mockserver-middleware": "1",
-        "@sap/ui5-builder-webide-extension": "^1.1.8",
-        "ui5-task-zipper": "^0.5.0",
-        "mbt": "^1.2.18"
+        "@sap/ux-ui5-tooling": "1",
+        "@ui5/cli": "^2.14.1",
+        "mbt": "^1.2.18",
+        "ui5-middleware-cfdestination": "^0.9.1",
+        "ui5-task-zipper": "^0.5.0"
     },
     "scripts": {
-        "start": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#cap3fe3-tile\"",
-        "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#cap3fe3-tile\"",
-        "build": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+        "start_fe": "fiori run --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#cap3fe2-tile\"",
+        "start": "ui5 serve",
+        "start-local": "fiori run --config ./ui5-local.yaml --open \"test/flpSandbox.html?sap-ui-xx-viewCache=false#cap3fe2-tile\"",
+        "build_fe": "ui5 build --config=ui5.yaml --clean-dest --dest dist",
+        "build": "mbt build",
         "deploy": "fiori verify",
         "deploy-config": "fiori add deploy-config",
         "start-noflp": "fiori run --open \"index.html?sap-ui-xx-viewCache=false\"",
@@ -37,7 +39,8 @@
             "@sap/ux-ui5-fe-mockserver-middleware",
             "@sap/ui5-builder-webide-extension",
             "ui5-task-zipper",
-            "mbt"
+            "mbt",
+            "ui5-middleware-cfdestination"
         ]
     },
     "sapux": true,

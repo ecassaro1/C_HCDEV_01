@@ -23,30 +23,31 @@ modules:
   - name: cap3-db
   parameters:
     buildpack: nodejs_buildpack
-- name: cap3-app-content
-  type: com.sap.application.content
-  path: .
-  requires:
-  - name: cap3-repo-host
-    parameters:
-      content-target: true
-  build-parameters:
-    build-result: resources
-    requires:
-    - artifacts:
-      - cap3fe3.zip
-      name: cap3fe3
-      target-path: resources/
-- name: cap3fe3
+- name: ui5-cap3_fe3
   type: html5
-  path: app/cap3_fe3
+  path: ./app/cap3_fe3/
+  properties:
+    CORS:
+      - uriPattern: .
+        allowedMethods:
+          - GET
+          - POST
+        allowedOrigin:
+          - host: '*.ondemand.com'
   build-parameters:
-    build-result: dist
     builder: custom
     commands:
-    - npm install
-    - npm run build:cf
+      - npm install
+      - ui5 build --dest ./approuter/webapp
     supported-platforms: []
+- name: approuter-cap3_fe3
+  type: approuter.nodejs
+  path: app/cap3_fe3/approuter
+  parameters:
+    disk-quota: 256M
+    memory: 256M
+  requires:
+    - name: html5-destination-cap3_fe3
 resources:
 - name: cap3-db
   type: com.sap.xs.hdi-container
@@ -55,35 +56,9 @@ resources:
     service-plan: hdi-shared
   properties:
     hdi-service-name: ${service-name}
-- name: cap3-repo-host
+- name: html5-destination-cap3_fe3
   type: org.cloudfoundry.managed-service
   parameters:
-    service: html5-apps-repo
-    service-name: cap3-html5-srv
-    service-plan: app-host
-- name: cap3-destination-service
-  type: org.cloudfoundry.managed-service
-  parameters:
-    config:
-      HTML5Runtime_enabled: false
-      init_data:
-        instance:
-          destinations:
-          - Authentication: NoAuthentication
-            Name: ui5
-            ProxyType: Internet
-            Type: HTTP
-            URL: https://ui5.sap.com
-          existing_destinations_policy: update
-      version: 1.0.0
-    service: destination
-    service-name: cap3-destination-service
     service-plan: lite
-parameters:
-  deploy_mode: html5-repo
-  enable-parallel-deployments: true
-build-parameters:
-  before-all:
-  - builder: custom
-    commands:
-    - npx -p @sap/cds-dk cds build --production
+    service: destination
+    path: ./app/cap3_fe3/destinations.json
