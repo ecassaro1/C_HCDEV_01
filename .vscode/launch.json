@@ -1,111 +1,443 @@
 {
-  "configurations": [
-    {
-      "name": "Run cap1-1",
-      "request": "launch",
-      "type": "pwa-node",
-      "cwd": "${workspaceFolder}/cap1",
-      "runtimeExecutable": "npx",
-      "args": [
-        "cds",
-        "run",
-        "--in-memory?"
-      ],
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
-      "envFile": "${workspaceFolder}/cap1/.env1",
-      "env": {
-        "NODE_ENV": "development",
-        "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/cap1\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
-      }
-    },
-    {
-      "name": "Start cap2_fe",
-      "type": "node",
-      "request": "launch",
-      "runtimeExecutable": "npx",
-      "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "args": [
-        "--open",
-        "test/flpSandbox.html#cap2fe-tile"
-      ],
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "outputCapture": "std",
-      "port": 9229,
-      "env": {
-        "DEBUG": "--inspect",
-        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
-      }
-    },
-    {
-      "name": "Start cap2_fe Mock",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
-      "runtimeExecutable": "npx",
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "args": [
-        "--config",
-        "./ui5-mock.yaml",
-        "--open",
-        "test/flpSandbox.html#cap2fe-tile"
-      ],
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "outputCapture": "std",
-      "port": 9229,
-      "env": {
-        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
-      }
-    },
-    {
-      "name": "Start cap2_fe Local",
-      "type": "node",
-      "request": "launch",
-      "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
-      "runtimeExecutable": "npx",
-      "windows": {
-        "runtimeExecutable": "npx.cmd"
-      },
-      "runtimeArgs": [
-        "fiori",
-        "run"
-      ],
-      "args": [
-        "--config",
-        "./ui5-local.yaml",
-        "--open",
-        "test/flpSandbox.html#cap2fe-tile"
-      ],
-      "console": "internalConsole",
-      "internalConsoleOptions": "openOnSessionStart",
-      "outputCapture": "std",
-      "port": 9229,
-      "env": {
-        "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
-        "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
-      }
-    }
-  ],
-  "compounds": [],
-  "version": "0.2.0"
+    "configurations": [
+        {
+            "name": "Run cap1-1",
+            "request": "launch",
+            "type": "pwa-node",
+            "cwd": "${workspaceFolder}/cap1",
+            "runtimeExecutable": "npx",
+            "args": [
+                "cds",
+                "run",
+                "--in-memory?"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "skipFiles": [
+                "<node_internals>/**"
+            ],
+            "envFile": "${workspaceFolder}/cap1/.env1",
+            "env": {
+                "NODE_ENV": "development",
+                "run.config": "{\"handlerId\":\"cap_run_config_handler_id\",\"runnableId\":\"{\\\"projectPath\\\":\\\"/home/user/projects/cap1\\\",\\\"profileName\\\":\\\"development\\\"}\"}"
+            }
+        },
+        {
+            "name": "Start cap2_fe",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#cap2fe-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
+            }
+        },
+        {
+            "name": "Start cap2_fe Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#cap2fe-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
+            }
+        },
+        {
+            "name": "Start cap2_fe Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap2/app/cap2_fe",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#cap2fe-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap2/app/cap2_fe\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe1",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe1",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#cap3fe1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe1\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe1 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe1\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe1 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe1",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe1-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe1\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe2",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/cap3_fe2",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#cap3fe2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3_fe2\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe2 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3_fe2",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3_fe2\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe2 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3_fe2",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe2-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3_fe2\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npx",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "DEBUG": "--inspect",
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3 Mock",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-mock.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        },
+        {
+            "name": "Start cap3_fe3 Local",
+            "type": "node",
+            "request": "launch",
+            "cwd": "${workspaceFolder}/cap3/app/cap3_fe3",
+            "runtimeExecutable": "npx",
+            "windows": {
+                "runtimeExecutable": "npx.cmd"
+            },
+            "runtimeArgs": [
+                "fiori",
+                "run"
+            ],
+            "args": [
+                "--config",
+                "./ui5-local.yaml",
+                "--open",
+                "test/flpSandbox.html#cap3fe3-tile"
+            ],
+            "console": "internalConsole",
+            "internalConsoleOptions": "openOnSessionStart",
+            "outputCapture": "std",
+            "port": 9229,
+            "env": {
+                "FIORI_TOOLS_URL_PARAMS": "sap-ui-xx-viewCache=false",
+                "run.config": "{\"handlerId\":\"fiori_tools\",\"runnableId\":\"/home/user/projects/cap3/app/cap3_fe3\"}"
+            }
+        }
+    ],
+    "compounds": [],
+    "version": "0.2.0"
 }

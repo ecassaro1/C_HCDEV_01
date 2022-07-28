@@ -1,0 +1,39 @@
+ID: ui5-approuter-cap3_fe2
+_schema-version: 3.2.0
+version: 1.0.0
+parameters:
+  enable-parallel-deployments: true
+
+modules:
+  - name: ui5-cap3_fe2
+    type: html5
+    path: ./
+    properties:
+      CORS:
+        - uriPattern: .
+          allowedMethods:
+            - GET
+            - POST
+          allowedOrigin:
+            - host: '*.ondemand.com'
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - ui5 build --dest ./approuter/webapp
+      supported-platforms: []
+  - name: approuter-cap3_fe2
+    type: approuter.nodejs
+    path: approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: html5-destination-cap3_fe2
+resources:
+  - name: html5-destination-cap3_fe2
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      path: ./destinations.json

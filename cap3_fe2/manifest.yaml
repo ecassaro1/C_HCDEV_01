@@ -1,0 +1,5 @@
+applications:
+  - name: cap3_fe2
+    path: ./webapp
+    buildpack: https://github.com/cloudfoundry/staticfile-buildpack.git
+    memory: 256M

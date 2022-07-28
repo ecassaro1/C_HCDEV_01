@@ -1,0 +1,1 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","cap3fe2/test/integration/pages/MainListReport","cap3fe2/test/integration/pages/MainObjectPage","cap3fe2/test/integration/OpaJourney"],function(e,a,t,n){"use strict";var e=new e({launchUrl:sap.ui.require.toUrl("cap3fe2")+"/index.html"});e.run({pages:{onTheMainPage:a,onTheDetailPage:t}},n.run)});
