@@ -1,0 +1,4 @@
+mta_archives/
+
+# auto generated wildcard
+btpfs2/btpfs2hana2/db/.env

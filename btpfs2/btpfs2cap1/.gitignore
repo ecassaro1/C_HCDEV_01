@@ -1,4 +1,4 @@
-# CAP cap3
+# CAP btpfs2cap1
 _out
 *.db
 connection.properties
@@ -28,14 +28,3 @@ mta_archives/
 # IDEs
 # .vscode
 # .idea
-
-# auto generated wildcard
-cap3/.env
-# auto generated wildcard
-btpfs1/db/.env
-# auto generated wildcard
-btpfs1/.env
-# auto generated wildcard
-btpfs2/btpfs2hana/db/.env
-# auto generated wildcard
-btpfs2/btpfs2hana2/db/.env

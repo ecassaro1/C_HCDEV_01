@@ -1,0 +1,5 @@
+COLUMN TABLE btpfs1_Ent1 (
+  ID INTEGER NOT NULL,
+  name NVARCHAR(50),
+  PRIMARY KEY(ID)
+)
