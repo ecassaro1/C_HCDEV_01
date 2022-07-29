@@ -47,3 +47,5 @@ btpfs1/.env
 btpfs2/btpfs2hana/db/.env
 # auto generated wildcard
 btpfs2/btpfs2hana2/db/.env
+# auto generated wildcard
+btpfs3/.env
