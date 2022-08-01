@@ -1,61 +1,66 @@
 {
-  "name": "be2",
-  "version": "1.0.0",
-  "description": "A simple CAP project.",
-  "repository": "<Add your repository here>",
-  "license": "UNLICENSED",
-  "private": true,
-  "dependencies": {
-    "@sap-cloud-sdk/http-client": "^2.6.0",
-    "@sap/cds": ">=5",
-    "express": "^4",
-    "hdb": "^0.19.0"
-  },
-  "devDependencies": {
-    "sqlite3": "^5.0.4"
-  },
-  "scripts": {
-    "start": "cds run"
-  },
-  "eslintConfig": {
-    "extends": "eslint:recommended",
-    "env": {
-      "es2020": true,
-      "node": true,
-      "jest": true,
-      "mocha": true
+    "name": "be2",
+    "version": "1.0.0",
+    "description": "A simple CAP project.",
+    "repository": "<Add your repository here>",
+    "license": "UNLICENSED",
+    "private": true,
+    "dependencies": {
+        "@sap-cloud-sdk/http-client": "^2.6.0",
+        "@sap/cds": ">=5",
+        "express": "^4",
+        "hdb": "^0.19.0"
     },
-    "globals": {
-      "SELECT": true,
-      "INSERT": true,
-      "UPDATE": true,
-      "DELETE": true,
-      "CREATE": true,
-      "DROP": true,
-      "CDL": true,
-      "CQL": true,
-      "CXL": true,
-      "cds": true
+    "devDependencies": {
+        "sqlite3": "^5.0.4"
     },
-    "rules": {
-      "no-console": "off",
-      "require-atomic-updates": "off"
-    }
-  },
-  "cds": {
-    "requires": {
-      "Catalog1": {
-        "kind": "odata",
-        "model": "srv/external/Catalog1",
-        "[sandbox]": {
-          "credentials": {
-            "url": "https://ae797c74trial-dev-be1-srv.cfapps.us10.hana.ondemand.com/catalog1/"
-          }
+    "scripts": {
+        "start": "cds run"
+    },
+    "eslintConfig": {
+        "extends": "eslint:recommended",
+        "env": {
+            "es2020": true,
+            "node": true,
+            "jest": true,
+            "mocha": true
+        },
+        "globals": {
+            "SELECT": true,
+            "INSERT": true,
+            "UPDATE": true,
+            "DELETE": true,
+            "CREATE": true,
+            "DROP": true,
+            "CDL": true,
+            "CQL": true,
+            "CXL": true,
+            "cds": true
+        },
+        "rules": {
+            "no-console": "off",
+            "require-atomic-updates": "off"
         }
-      },
-      "db": {
-        "kind": "sql"
-      }
+    },
+    "cds": {
+        "requires": {
+            "Catalog1": {
+                "kind": "odata",
+                "model": "srv/external/Catalog1",
+                "[sandbox]": {
+                    "credentials": {
+                        "url": "https://ae797c74trial-dev-be1-srv.cfapps.us10.hana.ondemand.com/catalog1/"
+                    }
+                },
+                "[production]": {
+                    "credentials": {
+                        "url": "https://ae797c74trial-dev-be1-srv.cfapps.us10.hana.ondemand.com/catalog1/"
+                    }
+                }
+            },
+            "db": {
+                "kind": "hana-cloud"
+            }
+        }
     }
-  }
 }

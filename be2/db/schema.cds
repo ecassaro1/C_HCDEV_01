@@ -6,6 +6,7 @@ entity Ent2 {
     name: String(50);
 }
 
+/* isso aqui não funciona, pq qdo manda pro HANA ele dá falta do Cat1Ent1
 entity Mashup1 as 
     select
             Ent1.ID,
@@ -14,5 +15,5 @@ entity Mashup1 as
         from Ent2
         join external.Cat1Ent1 as Ent1
             on Ent1.ID = Ent2.ID;
-
+*/
 
