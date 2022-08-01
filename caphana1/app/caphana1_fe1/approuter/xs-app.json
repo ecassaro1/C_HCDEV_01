@@ -1,0 +1,19 @@
+{
+    "welcomeFile": "index.html",
+    "authenticationMethod": "route",
+    "routes": [
+        {
+            "source": "/catalog1(.*)",
+            "target": "$1",
+            "destination": "caphana1ApiDestination",
+            "authenticationType": "none",
+            "csrfProtection": false
+        },
+        {
+            "source": "^(.*)$",
+            "target": "$1",
+            "authenticationType": "none",
+            "localDir": "webapp/"
+        }
+    ]
+}

@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ObjectPage"],function(e){"use strict";var t={actions:{},assertions:{}};return new e({appId:"caphana1fe1",componentId:"Ent1ObjectPage",entitySet:"Ent1"},t)});

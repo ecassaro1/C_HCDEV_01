@@ -1,0 +1,16 @@
+{
+    "init_data": {
+        "subaccount": {
+            "existing_destinations_policy": "update",
+            "destinations": [
+                {
+                    "Name": "caphana1ApiDestination",
+                    "Authentication": "NoAuthentication",
+                    "ProxyType": "Internet",
+                    "Type": "HTTP",
+                    "URL": "https://ae797c74trial-dev-caphana1-srv.cfapps.us10.hana.ondemand.com/catalog1"
+                }
+            ]
+        }
+    }
+}

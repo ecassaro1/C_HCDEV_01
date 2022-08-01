@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var e={actions:{},assertions:{}};return new t({appId:"caphana1fe1",componentId:"Ent1List",entitySet:"Ent1"},e)});

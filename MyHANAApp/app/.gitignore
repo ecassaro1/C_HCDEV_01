@@ -23,3 +23,5 @@ btpfs2/btpfs2hana/db/.env
 btpfs2/btpfs2hana2/db/.env
 # auto generated wildcard
 btpfs3/.env
+# auto generated wildcard
+caphana1/.env
