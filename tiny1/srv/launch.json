@@ -1,0 +1,24 @@
+// para criar uma config de debug
+
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Run tiny1",
+        "request": "launch",
+        "cwd": "${workspaceFolder}/tiny1/srv",
+        "runtimeArgs": [
+          "start"
+        ],
+        "runtimeExecutable": "npm",
+        "console": "integratedTerminal",
+        "envFile": "${workspaceFolder}/.env",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      }
+    ]
+  }

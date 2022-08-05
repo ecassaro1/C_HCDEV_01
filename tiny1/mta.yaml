@@ -1,0 +1,20 @@
+_schema-version: "3.2"
+ID: tiny1
+version: 0.0.1
+
+modules:
+- name: db
+  type: hdb
+  path: db
+  requires:
+  - name: tiny1-hdidb
+
+- name: tiny1-srv
+  type: nodejs
+  path: srv
+
+resources:
+- name: tiny1-hdidb
+  type: com.sap.xs.hdi-container
+  properties:
+    hdi-container-name: ${service-name}
