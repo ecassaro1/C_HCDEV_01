@@ -8,10 +8,53 @@ app.get('/Ent1', async function (req, res) {
     let rows = await getEnt1();
     res.send(rows);
 })
+app.get('/Ent1Cred', async function (req, res) {
+    let rows = await getEnt1Cred();
+    res.send(rows);
+})
 app.get('/get_ent1_proc', async function (req, res) {
     let rows = await getEnt1Proc();
     res.send(rows);
 })
+app.get('/getEnv', async function (req, res) {
+    let response = await getEnv();
+    res.send(response);
+})
+
+const getEnv = async ()=>{
+    var xsenv = require('@sap/xsenv');
+
+    xsenv.loadEnv();
+    let srv = xsenv.readServices();
+    //console.log(srv);
+    return srv;
+}
+
+const getEnt1Cred = async ()=>{
+    var hana = require('@sap/hana-client');
+
+    let vcap_services = await getEnv();
+
+    let credentials = vcap_services['tiny1-hdidb'].credentials;
+
+    var connOptions = {
+        serverNode: credentials.host+":"+credentials.port,
+        encrypt: 'true',
+        sslValidateCertificate: 'false',
+        uid: credentials.user,
+        pwd: credentials.password
+    };
+    
+    var connection = await hana.createConnection();
+
+    connection.connect(connOptions);
+
+    var sql = 'SELECT * FROM TINY1_HDI_DB_1.ENT1';
+
+    var rows = await connection.exec(sql);
+
+    return rows;
+}
 
 const getEnt1 = async ()=>{
     //return [ { ID: 1, NAME: 'Hum Fake' }, { ID: 2, NAME: 'Dois Fake' } ];

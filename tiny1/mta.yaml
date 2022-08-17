@@ -12,6 +12,8 @@ modules:
 - name: tiny1-srv
   type: nodejs
   path: srv
+  requires:
+    - name: tiny1-hdidb
 
 resources:
 - name: tiny1-hdidb
