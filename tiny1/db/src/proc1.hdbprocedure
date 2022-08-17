@@ -1,0 +1,8 @@
+PROCEDURE "get_ent1" (out result "ENT1")
+    LANGUAGE SQLSCRIPT
+    SQL SECURITY INVOKER
+    READS SQL DATA AS 
+BEGIN
+    result =
+        select * from "ENT1" order by "NAME";
+END
