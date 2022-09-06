@@ -33,3 +33,7 @@ mta_archives/
 caphana1/.env
 # auto generated wildcard
 tiny1/srv/.env
+# auto generated wildcard
+tinyCap1/srv2/.env
+# auto generated wildcard
+tinyCap1/.env

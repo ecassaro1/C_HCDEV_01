@@ -1,0 +1,16 @@
+{
+    "init_data": {
+        "subaccount": {
+            "existing_destinations_policy": "update",
+            "destinations": [
+                {
+                    "Name": "tinyCap1Destination",
+                    "Authentication": "NoAuthentication",
+                    "ProxyType": "Internet",
+                    "Type": "HTTP",
+                    "URL": "https://ae797c74trial-dev-tinycap1-srv.cfapps.us10.hana.ondemand.com/adm"
+                }
+            ]
+        }
+    }
+}

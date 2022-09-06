@@ -1,0 +1,1 @@
+sap.ui.require(["sap/fe/test/JourneyRunner","tinyfiori1/test/integration/pages/MainListReport","tinyfiori1/test/integration/pages/MainObjectPage","tinyfiori1/test/integration/OpaJourney"],function(i,e,t,n){"use strict";var i=new i({launchUrl:sap.ui.require.toUrl("tinyfiori1")+"/index.html"});i.run({pages:{onTheMainPage:e,onTheDetailPage:t}},n.run)});

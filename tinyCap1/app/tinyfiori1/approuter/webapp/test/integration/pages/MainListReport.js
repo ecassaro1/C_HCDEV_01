@@ -1,0 +1,1 @@
+sap.ui.define(["sap/fe/test/ListReport"],function(t){"use strict";var n={actions:{},assertions:{}};return new t({appId:"tinyfiori1",componentId:"Ent1List",entitySet:"Ent1"},n)});

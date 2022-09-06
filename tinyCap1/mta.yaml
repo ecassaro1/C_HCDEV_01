@@ -1,0 +1,82 @@
+---
+_schema-version: '3.1'
+ID: tinyCap1
+version: 1.0.0
+description: "A simple CAP project."
+parameters:
+  enable-parallel-deployments: true
+build-parameters:
+  before-all:
+    - builder: custom
+      commands:
+        - npx -p @sap/cds-dk cds build --production
+
+modules:
+  - name: tinyCap1-srv
+    type: nodejs
+    path: gen/srv
+    parameters:
+      buildpack: nodejs_buildpack
+    build-parameters:
+      builder: npm-ci
+    provides:
+      - name: srv-api # required by consumers of CAP services (e.g. approuter)
+        properties:
+          srv-url: ${default-url}
+    requires:
+      - name: tinyCap1-db
+
+  - name: tinyCap1-srv2
+    type: nodejs
+    path: srv2
+    requires:
+      - name: tinyCap1-db
+      
+  - name: tinyCap1-db-deployer
+    type: hdb
+    path: gen/db
+    parameters:
+      buildpack: nodejs_buildpack
+    requires:
+      - name: tinyCap1-db
+
+  - name: ui5-tinyfiori1
+    type: html5
+    path: ./app/tinyfiori1/
+    properties:
+      CORS:
+        - uriPattern: .
+          allowedMethods:
+            - GET
+            - POST
+          allowedOrigin:
+            - host: '*.ondemand.com'
+    build-parameters:
+      builder: custom
+      commands:
+        - npm install
+        - ui5 build --dest ./approuter/webapp
+      supported-platforms: []
+  - name: approuter-tinyfiori1
+    type: approuter.nodejs
+    path: app/tinyfiori1/approuter
+    parameters:
+      disk-quota: 256M
+      memory: 256M
+    requires:
+      - name: html5-destination-tinyfiori1
+
+
+resources:
+  - name: tinyCap1-db
+    type: com.sap.xs.hdi-container
+    parameters:
+      service: hana
+      service-plan: hdi-shared
+
+  - name: html5-destination-tinyfiori1
+    type: org.cloudfoundry.managed-service
+    parameters:
+      service-plan: lite
+      service: destination
+      path: ./app/tinyfiori1/destinations.json

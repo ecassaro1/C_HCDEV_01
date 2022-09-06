@@ -31,3 +31,5 @@ mta_archives/
 
 # auto generated wildcard
 .env
+# auto generated wildcard
+tinyCap1/srv2/.env
